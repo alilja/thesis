@@ -10,6 +10,16 @@
     \vskip0.5em}%
 }
 
+\usepackage{titlesec}
+\usepackage{color}
+\definecolor{light-grey}{gray}{0.5}
+
+\titleformat{\section}
+  {\normalfont\Large\color{light-grey}}{\thesection}{0.5em}{\color{black}}
+
+\titleformat{\chapter}
+  {\normalfont\huge\scshape}{}{0em}{}
+
 \usepackage[round]{natbib}
 \usepackage{apalike}
 
@@ -23,18 +33,8 @@
 
 \begin{document}
 
-\title{Repairing the False Expert}
-\subtitle{Mental Model Transformation in an Interactive After Action Review}
-\author{Andrew F. Lilja}
-\date{\today}
-
-\maketitle
-
-\tableofcontents
-
+\input{./tex/meta}
 \input{./tex/background}
-
-\bibliographystyle{apalike}
-\bibliography{references}
+\input{./tex/bibliography}
 
 \end{document}
