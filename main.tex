@@ -10,6 +10,22 @@
     \vskip0.5em}%
 }
 
+\newcommand{\chapterendsymbol}{
+    \par
+    \vspace{\stretch{1}}
+    \begin{center}
+	\LARGE{\symbols\char"F07A}
+    \end{center}
+    \vspace{\stretch{2}}
+}
+
+\newcommand\measurepage{\dimexpr\pagegoal-\pagetotal-\baselineskip\relax}
+
+\usepackage{xifthen}
+\newcommand{\chapterend}{
+	\ifthenelse{\lengthtest{\measurepage>150pt}}{\chapterendsymbol}{}
+}
+
 \usepackage{titlesec}
 \usepackage{color}
 \definecolor{light-grey}{gray}{0.5}
@@ -31,10 +47,13 @@
 \fontspec{Adobe Garamond Pro}
 \setmainfont[Ligatures={Common,TeX}, Numbers={OldStyle}]{Adobe Garamond Pro}
 
+\newfontfamily{\symbols}{Hoefler Text Ornaments}
+
 \begin{document}
 
 %\input{./tex/meta}
 \input{./tex/background}
+\chapterend
 \input{./tex/bibliography}
 
 \end{document}
