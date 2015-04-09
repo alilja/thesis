@@ -1,8 +1,10 @@
-% lit_review.text - Andrew F. Lilja's MS Thesis
+% lit_review.tex - Andrew F. Lilja's MS Thesis
 
 \documentclass[12pt, twoside]{book}
 
 \usepackage{sidenotes}
+\renewcommand*{\marginfont}{\small\color{dark-grey}}
+\usepackage{epigraph}
 
 \usepackage{titling}
 \newcommand{\subtitle}[1]{%
@@ -12,6 +14,8 @@
     \vskip0.5em}%
 }
 
+
+% defining the chapter end symbol
 \newcommand{\chapterendsymbol}{
     \par
     \vspace{\stretch{0.125}}
@@ -21,6 +25,7 @@
     \vspace{\stretch{2}}
 }
 
+% only draw it if there's enough room
 \newcommand\measurepage{\dimexpr\pagegoal-\pagetotal-\baselineskip\relax}
 
 \usepackage{xifthen}
@@ -28,12 +33,14 @@
 	\ifthenelse{\lengthtest{\measurepage>150pt}}{\chapterendsymbol}{}
 }
 
+% format chapter and section headings
 \usepackage{titlesec}
 \usepackage{color}
 \definecolor{light-grey}{gray}{0.5}
+\definecolor{dark-grey}{gray}{0.3}
 
 \titleformat{\section}
-  {\normalfont\Large\color{light-grey}}{\thesection}{0.25em}{\color{black}}
+  {\normalfont\Large\color{light-grey}}{\nonOldStyle\thesection}{0.25em}{\color{black}}
 
 \titleformat{\chapter}
   {\normalfont\huge\scshape}{}{0em}{}
@@ -48,28 +55,27 @@
 
 \fontspec{Adobe Garamond Pro}
 \setmainfont[Ligatures={Common,TeX}, Numbers={OldStyle}]{Adobe Garamond Pro}
-
 \newfontfamily{\symbols}{Hoefler Text Ornaments}
+\newfontface{\nonOldStyle}{Adobe Garamond Pro}
 
-
-
-\begin{document}
-
-\newgeometry{total={6.5in, 9in}, left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{fancyhdr}
+\pagestyle{headings}
 
 \title{Fixing the False Expert}
 \subtitle{Mental Model Transformation in an Interactive After Action Review}
 \author{Andrew F. Lilja}
 \date{\today}
 
-\maketitle
+\begin{document}
 
-\restoregeometry
+%\input{./tex/meta}
 
-\input{./tex/meta}
+\mainmatter
 
 \input{./tex/background}
 \chapterendsymbol
+%\input{./tex/methods}
+%\chapterendsymbol
 
 \input{./tex/bibliography}
 
