@@ -2,6 +2,10 @@
 
 \documentclass[12pt, twoside]{book}
 
+\newcommand{\sectionref}[1]{
+  \S\ref{#1} (page \pageref{#1})
+}
+
 \usepackage{sidenotes}
 \renewcommand*{\marginfont}{\small\color{dark-grey}}
 \usepackage{epigraph}
@@ -52,13 +56,14 @@
 \usepackage{hyperref}
 \usepackage{lmodern}
 \usepackage{fontspec}
+\usepackage{enumitem}
 
 \fontspec{Adobe Garamond Pro}
 \setmainfont[Ligatures={Common,TeX}, Numbers={OldStyle}]{Adobe Garamond Pro}
 \newfontfamily{\symbols}{Hoefler Text Ornaments}
 \newfontface{\nonOldStyle}{Adobe Garamond Pro}
 
-\title{Fixing the False Expert}
+\title{Thinking Better}
 \subtitle{Mental Model Transformation in an Interactive After Action Review}
 \author{Andrew F. Lilja}
 \date{\today}
@@ -69,11 +74,16 @@
 
 \mainmatter
 
+\input{./tex/introduction}
+\chapterendsymbol
 \input{./tex/background}
 \chapterendsymbol
 \input{./tex/methods}
 \chapterendsymbol
 
 \input{./tex/bibliography}
+
+\input{./tex/appendix}
+\chapterendsymbol
 
 \end{document}
